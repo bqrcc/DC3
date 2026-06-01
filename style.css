@@ -301,3 +301,7 @@ html, body {
   gap: 40px;
   margin-top: 30px;
 }
+
+.has-second-stock {
+  background: #00ff0d;
+}

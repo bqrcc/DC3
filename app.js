@@ -115,6 +115,18 @@ function renderLocation() {
 
       </div>
 
+      <button
+      class="second-stock-btn
+      ${item.secondStock.EAN ? 'has-second-stock' : ''}"
+      onclick="openSecondStock()"
+      >
+        ${
+        item.secondStock.EAN
+          ? 'SECOND STOCK ✓'
+          : 'ADD SECOND STOCK'
+        }
+      </button>
+
       <div class="nav-buttons">
 
         <button
@@ -132,6 +144,55 @@ function renderLocation() {
         </button>
 
       </div>
+
+      <div
+  id="secondStockModal"
+  class="modal"
+  style="display:none;"
+>
+
+  <div class="modal-content">
+
+    <h2>Second Stock</h2>
+
+    <label>EAN</label>
+
+    <input
+      id="secondEAN"
+      type="text"
+      value="${
+        item.secondStock
+          ? item.secondStock.EAN
+          : ''
+      }"
+    >
+
+    <label>Quantity</label>
+
+    <input
+      id="secondQty"
+      type="number"
+      value="${
+        item.secondStock
+          ? item.secondStock.quantity
+          : ''
+      }"
+    >
+
+    <br><br>
+
+    <button onclick="saveSecondStock();">
+      SAVE
+    </button>
+
+    <button onclick="closeSecondStock()">
+      CANCEL
+    </button>
+
+  </div>
+
+</div>
+
 
     </div>
   `;
@@ -249,10 +310,36 @@ function exportToExcel() {
   const workbook =
     XLSX.utils.book_new();
 
+  const rows = [];
+
+  warehouseData.DC3.forEach(item => {
+
+    if (item.EAN || item.secondStock.EAN) {
+
+      // Main stock
+      rows.push({
+        Location: item.location,
+        EAN: item.EAN,
+        Quantity: item.quantity
+      });
+
+      // Second stock (if entered)
+      if (
+        item.secondStock &&
+        item.secondStock.EAN
+      ) {
+        rows.push({
+          Location: item.location,
+          EAN: item.secondStock.EAN,
+          Quantity: item.secondStock.quantity
+        });
+      }
+    }
+
+    });
+
   const worksheet =
-    XLSX.utils.json_to_sheet(
-      warehouseData.DC3
-    );
+    XLSX.utils.json_to_sheet(rows);
 
   XLSX.utils.book_append_sheet(
     workbook,
@@ -291,6 +378,43 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker
     .register('./sw.js');
 
+}
+
+function openSecondStock() {
+
+  document.getElementById(
+    'secondStockModal'
+  ).style.display = 'block';
+}
+
+function closeSecondStock() {
+
+  document.getElementById(
+    'secondStockModal'
+  ).style.display = 'none';
+}
+
+function saveSecondStock() {
+
+  const item =
+    warehouseData.DC3[currentIndex];
+
+  item.secondStock = {
+
+    EAN:
+      document.getElementById(
+        'secondEAN'
+      ).value,
+
+    quantity:
+      document.getElementById(
+        'secondQty'
+      ).value
+  };
+
+  saveData();
+
+  renderLocation();
 }
 
 renderHomePage();
