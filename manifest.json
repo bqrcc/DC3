@@ -3,7 +3,18 @@
   "short_name": "DC3",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#f1f5f9",
+  "background_color": "#FF6516",
   "theme_color": "#1e293b",
-  "icons": []
+    "icons": [
+    {
+      "src": "cartoon.png",
+      "sizes": "192x192",
+      "type": "cartoon/png"
+    },
+    {
+      "src": "cartoon.png",
+      "sizes": "512x512",
+      "type": "cartoon/png"
+    }
+  ]
 }
