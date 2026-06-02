@@ -6,7 +6,7 @@ body {
 
   background: #f1f5f9;
 
-  border: 12px solid purple;
+  /*border: 12px solid purple; */
 
   box-sizing: border-box;
 
@@ -44,7 +44,13 @@ header h1 img {
 .button-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+
+  align-items: center;
+  justify-content: center;  /* vertical centering */
+
+  gap: 10px;                /* space between buttons */
+
+  height: 70vh;             /* adjust as needed */
 }
 
 button {
@@ -55,13 +61,20 @@ button {
   background: #ff8800;
   color: rgb(0, 0, 0);
   cursor: pointer;
+
+  transition: all 0.2s ease;
+  box-shadow:
+    0 4px 10px rgba(0,0,0,0.15);
 }
 
 .button2 {
+  width: 500px;
+  height: 150px;
   margin-top: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 50px;
   padding: 14px;
-  font-size: 18px;
+  font-size: 38px;
+  font-weight: 600;
   border: none;
   border-radius: 10px;
   background: #ff8800;
@@ -69,23 +82,14 @@ button {
   cursor: pointer;
 }
 
-.button3 {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding: 14px;
-  font-size: 18px;
-  border: none;
-  border-radius: 10px;
-  background: #00c0e2d8;
-  color: rgb(0, 0, 0);
-  cursor: pointer;
-}
-
 .button4 {
-  margin-top: 5px;
+  width: 500px;
+  height: 150px;
+  margin-top: 50px;
   margin-bottom: 5px;
   padding: 14px;
-  font-size: 18px;
+  font-size: 38px;
+  font-weight: 600;
   border: none;
   border-radius: 10px;
   background: #ff0000d8;
@@ -176,6 +180,9 @@ button {
 }
 
 .next-btn {
+  width: 200px;
+  height: 80px;
+
   margin: 10 ;
   padding: 10px;
   font-size: 18px;
@@ -183,7 +190,6 @@ button {
   border-radius: 10px;
   background: #c300ff;
   cursor: pointer;
-  height: fit-content;
 }
 
 .stacks-wrapper {
@@ -304,4 +310,52 @@ html, body {
 
 .has-second-stock {
   background: #00ff0d;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,0.7);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+}
+
+.modal-content {
+  background: white;
+
+  padding: 40px;
+
+  border-radius: 20px;
+
+  width: 500px;
+  max-width: 90%;
+
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-content h2 {
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+
+.modal-content input {
+  font-size: 24px;
+  padding: 15px;
+}
+
+.modal-content button {
+  font-size: 24px;
+  padding: 15px;
 }

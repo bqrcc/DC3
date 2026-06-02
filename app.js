@@ -41,7 +41,6 @@ function renderHomePage() {
         START CHECK
       </button>
 
-      <br><br><br><br>
 
       <button
         class="button4"
@@ -122,7 +121,7 @@ function renderLocation() {
       >
         ${
         item.secondStock.EAN
-          ? 'SECOND STOCK ✓'
+          ? 'SECOND STOCK'
           : 'ADD SECOND STOCK'
         }
       </button>
@@ -237,10 +236,6 @@ function nextLocation() {
       ✅ Check Complete
     </div>
 
-    <div class="complete-message">
-      Excel File Saved
-    </div>
-
     <div class="center-button">
 
       <button
@@ -252,6 +247,9 @@ function nextLocation() {
 
       <br>
       <br>
+      <br>
+      <br>
+
 
       <button
         class="next-btn"
@@ -260,6 +258,8 @@ function nextLocation() {
         EXPORT EXCEL
       </button>
 
+      <br>
+      <br>
       <br>
       <br>
 
@@ -382,16 +382,12 @@ if ('serviceWorker' in navigator) {
 
 function openSecondStock() {
 
-  document.getElementById(
-    'secondStockModal'
-  ).style.display = 'block';
+  document.getElementById('secondStockModal').style.display = 'flex';
 }
 
 function closeSecondStock() {
 
-  document.getElementById(
-    'secondStockModal'
-  ).style.display = 'none';
+  document.getElementById('secondStockModal').style.display = 'none';
 }
 
 function saveSecondStock() {
@@ -413,6 +409,8 @@ function saveSecondStock() {
   };
 
   saveData();
+
+  saveCurrentInputs();
 
   renderLocation();
 }
