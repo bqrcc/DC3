@@ -1,4 +1,4 @@
-const CACHE_NAME = 'warehouse-app-v1';
+const CACHE_NAME = 'warehouse-app-v2';
 
 const urlsToCache = [
   './',
@@ -9,6 +9,8 @@ const urlsToCache = [
   './manifest.json',
   './xlsx.full.min.js',
   './bq.png',
+  './cartoon-192.png',
+  './cartoon-512.png',
 ];
 
 self.addEventListener('install', event => {
