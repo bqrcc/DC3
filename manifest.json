@@ -9,12 +9,12 @@
     {
       "src": "cartoon.png",
       "sizes": "192x192",
-      "type": "cartoon/png"
+      "type": "image/png"
     },
     {
       "src": "cartoon.png",
       "sizes": "512x512",
-      "type": "cartoon/png"
+      "type": "image/png"
     }
   ]
 }
