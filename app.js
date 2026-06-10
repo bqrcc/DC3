@@ -366,7 +366,7 @@ function resetData() {
   );
 
   warehouseData =
-    structuredClone(defaultWarehouseData);
+    structuredClone(defaultWarehouseData2);
 
   saveData();
 

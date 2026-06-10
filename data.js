@@ -1,4 +1,4 @@
-let defaultWarehouseData  = {
+let defaultWarehouseData2  = {
   DC3: [
 { location: 'STDP01' , EAN: '' , quantity : '' , secondStock: { EAN: '' , quantity: '' } },
 { location: 'STDP02' , EAN: '' , quantity : '' , secondStock: { EAN: '' , quantity: '' } },
@@ -112,4 +112,4 @@ let defaultWarehouseData  = {
 };
 
 let warehouseData =
-  structuredClone(defaultWarehouseData);
+  structuredClone(defaultWarehouseData2);
