@@ -111,5 +111,5 @@ let defaultWarehouseData2  = {
   ]
 };
 
-let warehouseData =
+let warehouseData2 =
   structuredClone(defaultWarehouseData2);

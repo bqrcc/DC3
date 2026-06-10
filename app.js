@@ -1,16 +1,16 @@
 function saveData() {
   localStorage.setItem(
-    'warehouseData',
-    JSON.stringify(warehouseData)
+    'warehouseData2',
+    JSON.stringify(warehouseData2)
   );
 }
 
 function loadData() {
   const saved =
-    localStorage.getItem('warehouseData');
+    localStorage.getItem('warehouseData2');
 
   if (saved) {
-    warehouseData = JSON.parse(saved);
+    warehouseData2 = JSON.parse(saved);
   }
 }
 
@@ -63,7 +63,7 @@ function startCheck() {
 function renderLocation() {
 
   const item =
-    warehouseData.DC3[currentIndex];
+    warehouseData2.DC3[currentIndex];
 
   app.innerHTML = `
 
@@ -79,7 +79,7 @@ function renderLocation() {
       <h1>
         ${currentIndex + 1}
         /
-        ${warehouseData.DC3.length}
+        ${warehouseData2.DC3.length}
       </h1>
 
     </div>
@@ -211,7 +211,7 @@ function saveCurrentInputs() {
   }
 
   const item =
-    warehouseData.DC3[currentIndex];
+    warehouseData2.DC3[currentIndex];
 
   item.EAN = eanInput.value;
 
@@ -227,7 +227,7 @@ function nextLocation() {
   currentIndex++;
 
   if (
-    currentIndex >= warehouseData.DC3.length
+    currentIndex >= warehouseData2.DC3.length
   ) {
 
     app.innerHTML = `
@@ -312,7 +312,7 @@ function exportToExcel() {
 
   const rows = [];
 
-  warehouseData.DC3.forEach(item => {
+  warehouseData2.DC3.forEach(item => {
 
     if (item.EAN || item.secondStock.EAN) {
 
@@ -362,10 +362,10 @@ function resetData() {
   if (!confirmed) return;
 
   localStorage.removeItem(
-    'warehouseData'
+    'warehouseData2'
   );
 
-  warehouseData =
+  warehouseData2 =
     structuredClone(defaultWarehouseData2);
 
   saveData();
@@ -393,7 +393,7 @@ function closeSecondStock() {
 function saveSecondStock() {
 
   const item =
-    warehouseData.DC3[currentIndex];
+    warehouseData2.DC3[currentIndex];
 
   item.secondStock = {
 
